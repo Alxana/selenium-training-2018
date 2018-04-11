@@ -22,7 +22,7 @@ public class MyFirstTest {
     }
 
     @Test
-    public void MyFiestTest(){
+    public void MyFirstTest(){
         driver.get("http://www.google.com/");
         driver.findElement(By.name("q")).sendKeys("webdriver");
 //        driver.findElement(By.name("btnK")).click();
