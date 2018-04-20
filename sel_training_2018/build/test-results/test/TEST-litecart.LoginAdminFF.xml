@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="litecart.LoginAdminFF" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-04-13T13:30:09" hostname="avoranavalap" time="8.894">
+  <properties/>
+  <testcase name="Login" classname="litecart.LoginAdminFF" time="8.894"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[1523626209242	geckodriver	INFO	geckodriver 0.20.1
+1523626209257	geckodriver	INFO	Listening on 127.0.0.1:4235
+1523626209794	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\AVORAN~1\\AppData\\Local\\Temp\\rust_mozprofile.KeJC6ylvF1Ev"
+Unable to read VR Path Registry from C:\Users\avoranava\AppData\Local\openvr\openvrpaths.vrpath
+1523626211552	Marionette	INFO	Enabled via --marionette
+Unable to read VR Path Registry from C:\Users\avoranava\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\avoranava\AppData\Local\openvr\openvrpaths.vrpath
+Unable to read VR Path Registry from C:\Users\avoranava\AppData\Local\openvr\openvrpaths.vrpath
+1523626214051	Marionette	INFO	Listening on port 53231
+1523626215062	Marionette	WARN	TLS certificate errors will be ignored for this session
+Unable to read VR Path Registry from C:\Users\avoranava\AppData\Local\openvr\openvrpaths.vrpath
+Apr 13, 2018 4:30:15 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+[Child 11208, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+[Child 11208, Chr[Child 6360, Chrome_
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+]]></system-err>
+</testsuite>
