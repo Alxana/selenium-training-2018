@@ -8,10 +8,6 @@ import java.util.List;
 
 public class GoThroughAdminMenu extends LoginAdmin {
 
-    private WebElement getMenu(){
-        return driver.findElement(By.cssSelector("ul#box-apps-menu"));
-    }
-
     private List<WebElement> getMainCategories(){
         return driver.findElements(By.cssSelector("ul#box-apps-menu li#app-"));
     }
@@ -29,9 +25,6 @@ public class GoThroughAdminMenu extends LoginAdmin {
 
     @Test
     public void GoThroughAdminMenu(){
-
-//
-        int categoriesSize;
 
         Login();
 
