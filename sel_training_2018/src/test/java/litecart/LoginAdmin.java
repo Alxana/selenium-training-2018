@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
+
 public class LoginAdmin {
 
     protected WebDriver driver;
@@ -33,6 +35,11 @@ public class LoginAdmin {
         driver.findElement(By.name("password")).sendKeys(pass);
         driver.findElement(By.name("login")).click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"notices\"]/div[2]"), "You are now logged in as admin" ));
+    }
+
+    public void LoginApp(){
+        driver.get(" http://localhost/litecart/");
+        wait.until(titleIs("Online Store | My Store"));
     }
 
     boolean isElementPresent(WebDriver driver, By locator) {
