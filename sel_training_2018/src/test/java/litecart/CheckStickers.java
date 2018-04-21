@@ -13,7 +13,7 @@ public class CheckStickers extends LoginAdmin {
     WebElement name;
 
     private List<WebElement> getAllProducts(){
-        return driver.findElements(By.cssSelector(".product.column.shadow.hover-light"));
+        return driver.findElements(By.cssSelector(".products .product"));
     }
     @Test
     public void CheckStickers(){
