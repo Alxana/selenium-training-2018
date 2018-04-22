@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
-public class LoginAdmin {
+public class TestBase {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
@@ -27,6 +27,7 @@ public class LoginAdmin {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
+        driver.manage().window().maximize();
     }
 
     public void Login(){
@@ -35,6 +36,10 @@ public class LoginAdmin {
         driver.findElement(By.name("password")).sendKeys(pass);
         driver.findElement(By.name("login")).click();
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"notices\"]/div[2]"), "You are now logged in as admin" ));
+    }
+
+    public void LogoutAdmin(){
+        driver.findElement(By.cssSelector("#sidebar .header a[title=Logout]")).click();
     }
 
     public void LoginApp(){

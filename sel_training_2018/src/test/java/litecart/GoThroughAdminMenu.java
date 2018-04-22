@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class GoThroughAdminMenu extends LoginAdmin {
+public class GoThroughAdminMenu extends TestBase {
 
     private List<WebElement> getMainCategories(){
         return driver.findElements(By.cssSelector("ul#box-apps-menu li#app-"));

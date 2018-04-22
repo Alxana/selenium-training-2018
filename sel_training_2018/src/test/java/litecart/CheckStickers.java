@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class CheckStickers extends LoginAdmin {
+public class CheckStickers extends TestBase {
 
     List<WebElement> products;
     List<WebElement> sticker;
