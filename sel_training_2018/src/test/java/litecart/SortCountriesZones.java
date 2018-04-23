@@ -18,6 +18,7 @@ public class SortCountriesZones extends TestBase {
     private static int COUNTRY_COLUMN_ZONES_PAGE = 3;
     private static int ZONES_COLUMN_NUM = 6;
     private static String TAG_NAME_LINK = "a";
+    String countryName;
 
     // get list of zones or countries from data table.
     // in: column number, tag name
@@ -27,9 +28,14 @@ public class SortCountriesZones extends TestBase {
         return driver.findElements(By.cssSelector(".dataTable tr.row td:nth-child(" + tdNum +") " + tagName));
     }
 
-    // list of zones for selected country
-    private List<WebElement> getZonesList(){
+    // list of all zones for selected country
+    private List<WebElement> getAllZonesList(){
         return driver.findElements(By.cssSelector("#table-zones td:nth-child(3)"));
+    }
+
+    // list of selected zones for country
+    private List<WebElement> getSelectedZonesList(){
+        return driver.findElements(By.cssSelector("#table-zones td:nth-child(3) option[selected=selected]"));
     }
 
     //close zone and go to Countries
@@ -37,16 +43,6 @@ public class SortCountriesZones extends TestBase {
         driver.findElement(By.cssSelector("button[name=cancel")).click();
     }
 
-    // check if zones are in alphabetical order on zones page
-    private void checkZonesSort(int i, int td){
-        String countryName = getCountriesByColumn(td, TAG_NAME_LINK).get(i).getText();
-        getCountriesByColumn(td, TAG_NAME_LINK).get(i).click();
-
-        if (isSortedAlphabetically(getZonesList())) {
-            System.out.println("Geo Zones are sorted alphabetically for " + countryName);
-        } else System.out.println("Geo Zones are not sorted alphabetically for " + countryName);
-        closeZone();
-    }
 
     private boolean isSortedAlphabetically(List<WebElement> listToCheck){
 
@@ -54,7 +50,7 @@ public class SortCountriesZones extends TestBase {
         ArrayList<String> sortedList = new ArrayList<String>();
 
         for (WebElement we: listToCheck){
-            obtainedList.add(we.getText());
+            if(!we.getText().equals("")){ obtainedList.add(we.getText());};
         }
 
         sortedList.addAll(obtainedList);
@@ -83,7 +79,14 @@ public class SortCountriesZones extends TestBase {
         for(int i=0; i<getCountriesByColumn(COUNTRY_COLUMN, "a").size(); i++) {
 
             if (!getCountriesByColumn(ZONES_COLUMN_NUM, "").get(i).getText().equals("0")) {
-                checkZonesSort(i, COUNTRY_COLUMN);
+                countryName = getCountriesByColumn(COUNTRY_COLUMN, TAG_NAME_LINK).get(i).getText();
+                getCountriesByColumn(COUNTRY_COLUMN, TAG_NAME_LINK).get(i).click();
+
+                if (isSortedAlphabetically(getAllZonesList())) {
+                    System.out.println("Geo Zones are sorted alphabetically for " + countryName);
+                } else System.out.println("Geo Zones are not sorted alphabetically for " + countryName);
+
+                closeZone();
             }
         }
 
@@ -96,7 +99,15 @@ public class SortCountriesZones extends TestBase {
         driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
 
         for(int i=0; i<(getCountriesByColumn(COUNTRY_COLUMN_ZONES_PAGE, TAG_NAME_LINK)).size(); i++){
-            checkZonesSort(i, COUNTRY_COLUMN_ZONES_PAGE);
+
+            countryName = getCountriesByColumn(COUNTRY_COLUMN_ZONES_PAGE, TAG_NAME_LINK).get(i).getText();
+            getCountriesByColumn(COUNTRY_COLUMN_ZONES_PAGE, TAG_NAME_LINK).get(i).click();
+
+            if (isSortedAlphabetically(getSelectedZonesList())) {
+                System.out.println("Geo Zones are sorted alphabetically for " + countryName);
+            } else System.out.println("Geo Zones are not sorted alphabetically for " + countryName);
+
+            closeZone();
         }
         LogoutAdmin();
 
