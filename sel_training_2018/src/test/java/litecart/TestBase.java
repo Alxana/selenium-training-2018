@@ -8,6 +8,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,7 +26,9 @@ public class TestBase {
 
     @Before
     public void start(){
-        driver = new ChromeDriver();
+//      driver = new ChromeDriver();
+//      driver = new FirefoxDriver();
+        driver = new InternetExplorerDriver();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
         driver.manage().window().maximize();
@@ -43,7 +47,7 @@ public class TestBase {
     }
 
     public void LoginApp(){
-        driver.get(" http://localhost/litecart/");
+        driver.get("http://localhost/litecart/");
         wait.until(titleIs("Online Store | My Store"));
     }
 
