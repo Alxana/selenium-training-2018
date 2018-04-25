@@ -1,12 +1,10 @@
 package litecart;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -62,7 +60,7 @@ public class SortCountriesZones extends TestBase {
 
     @Test //Zadanie 9-1a
     public void checkCountriesSort() {
-        Login();
+        LoginAdmin();
         driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
 
         assertTrue("Countries are not sorted alphabetically", isSortedAlphabetically(getCountriesByColumn(COUNTRY_COLUMN, TAG_NAME_LINK)));
@@ -73,7 +71,7 @@ public class SortCountriesZones extends TestBase {
 
     @Test//Zadanie 9-1b
     public void checkZonesOfCountriesSort(){
-        Login();
+        LoginAdmin();
         driver.get("http://localhost/litecart/admin/?app=countries&doc=countries");
 
         for(int i=0; i<getCountriesByColumn(COUNTRY_COLUMN, "a").size(); i++) {
@@ -95,7 +93,7 @@ public class SortCountriesZones extends TestBase {
 
     @Test //Zadanie 9-2
     public void checkZonesSort() {
-        Login();
+        LoginAdmin();
         driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
 
         for(int i=0; i<(getCountriesByColumn(COUNTRY_COLUMN_ZONES_PAGE, TAG_NAME_LINK)).size(); i++){

@@ -18,7 +18,7 @@ public class CheckStickers extends TestBase {
     @Test
     public void CheckStickers(){
 
-        LoginApp();
+        OpenApp();
 
         products = getAllProducts();
 

@@ -26,7 +26,7 @@ public class GoThroughAdminMenu extends TestBase {
     @Test
     public void GoThroughAdminMenu(){
 
-        Login();
+        LoginAdmin();
 
         for (int i=0; i<getMainCategories().size(); i++){
             getMainCategories().get(i).click();

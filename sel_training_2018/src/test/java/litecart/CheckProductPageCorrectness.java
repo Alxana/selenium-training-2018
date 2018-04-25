@@ -16,7 +16,7 @@ public class CheckProductPageCorrectness extends TestBase {
 
     @Test
     public void ProductPageCorrectnessTest(){
-        LoginApp();
+        OpenApp();
 
         WebElement firstCampaignProduct = driver.findElement(By.cssSelector("#box-campaigns .product"));
         productOnMainPage.initProductMainPage(firstCampaignProduct);
@@ -30,9 +30,9 @@ public class CheckProductPageCorrectness extends TestBase {
         assertTrue("Campaign price on main page product is not bigger than regular price!", productOnMainPage.isCampaignPriceBigger());
         System.out.println("Product on main page is correctly formatted");
 
-//        firstCampaignProduct.click();
+        firstCampaignProduct.click();
+//        driver.get("http://localhost/litecart/en/rubber-ducks-c-1/subcategory-c-2/yellow-duck-p-1");
 
-        driver.get("http://localhost/litecart/en/rubber-ducks-c-1/subcategory-c-2/yellow-duck-p-1");
         WebElement firstCampaignProductDetail = driver.findElement(By.cssSelector("#box-product"));
         productOnDetailPage.initProductDetailPage(firstCampaignProductDetail);
 
