@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static org.junit.Assert.assertTrue;
 
 public class RegisterNewUser extends TestBase {
@@ -17,13 +20,12 @@ public class RegisterNewUser extends TestBase {
     String City = "Norfolk";
     String Country = "United States";
     String State = "Virginia";
-    String Email = "alexandra.voronova123@mail.by";
     String Phone = "+1234567890";
     String Password = "my_password";
+    SimpleDateFormat dateNow = new SimpleDateFormat("yyMMddhhmm");
+    String Email = "alexandra.voronova" + dateNow.format(new Date()) + "@mail.by";
 
     WebElement CustomerForm;
-
-
 
 
     @Test
