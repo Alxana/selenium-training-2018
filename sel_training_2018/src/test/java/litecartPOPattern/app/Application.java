@@ -43,10 +43,10 @@ public class Application {
         int itemsInTableCount; // number of items in table of products added to cart
 
         for(WebElement item: cartPage.getItemsInCart()){
-            itemsInTableCount = cartPage.getItemsInTableCount(driver);
+            itemsInTableCount = cartPage.getItemsInTableCount();
             cartPage.removeVisibleItem().waitForTableToUpdate();
 
-            if (itemsInTableCount == cartPage.getItemsInTableCount(driver)){ // if number of items in table is not changed, then remove was not done
+            if (itemsInTableCount == cartPage.getItemsInTableCount()){ // if number of items in table is not changed, then remove was not done
 
                 System.out.println("remove was not successful");
                 return isSuccess = false;

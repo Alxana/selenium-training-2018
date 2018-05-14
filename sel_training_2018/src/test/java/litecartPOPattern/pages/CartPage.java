@@ -39,7 +39,7 @@ public class CartPage extends Page {
         wait.until(stalenessOf(driver.findElement(By.cssSelector("#order_confirmation-wrapper"))));
     }
 
-    public int getItemsInTableCount(WebDriver driver){
+    public int getItemsInTableCount(){
         return itemsInTable.size() - 5;
     }
 }
